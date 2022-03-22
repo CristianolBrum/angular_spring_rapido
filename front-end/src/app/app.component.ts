@@ -43,4 +43,13 @@ submit(){
       next: (response) => this.listarTodos()
     })
   }
+
+  done(todo: Todo){
+    this.service.marcarComoConcluido(todo.id).subscribe({
+      next : (todoAtualizado) => {
+        todo.done = todoAtualizado.done
+        todo.doneDate = todoAtualizado.doneDate
+      }
+    })
+  }
 }
