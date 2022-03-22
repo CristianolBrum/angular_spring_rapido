@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class TodoService {
 
-  apiUrl = 'http://localhost:8080/api/todos/'
+  apiUrl = 'http://localhost:8080/api/todos'
 
   constructor(private http: HttpClient) {
     
@@ -21,6 +21,11 @@ export class TodoService {
 
   listar(): Observable<Todo[]>{
     return this.http.get<Todo[]>(this.apiUrl);  
+  }
+
+  deletar(id: number): Observable<void>{
+    const url = `${this.apiUrl}/${id}`
+    return this.http.delete<void>(url);  
   }
 
 }

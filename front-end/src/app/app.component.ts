@@ -19,7 +19,13 @@ constructor(private service : TodoService){
 }
 
 ngOnInit(): void {
-  this.service.listar().subscribe(todoList => this.todos = todoList)
+  this.listarTodos()
+}
+
+listarTodos(){
+  this.service.listar().subscribe(todoList => {
+    this.todos = todoList
+  })
 }
 submit(){
     console.log(this.form.value)
@@ -29,6 +35,12 @@ submit(){
     .subscribe(savedTodo => {
       this.todos.push(savedTodo)
       this.form.reset()
+    })
+  }
+
+  delete(todo: Todo){
+    this.service.deletar(todo.id).subscribe({
+      next: (response) => this.listarTodos()
     })
   }
 }

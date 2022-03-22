@@ -23,7 +23,7 @@
                     {{todo.description}}
                     <div class="btn-group">
                         <button class="btn btn-success">Done</button>
-                        <button class="btn btn-danger">Delete</button>
+                        <button (click)="delete(todo)" class="btn btn-danger">Delete</button>
                     </div>
                 </li>
             </ul>
