@@ -19,7 +19,7 @@ import org.springframework.web.server.ResponseStatusException;
 import io.github.cursodesousa.todo.model.Todo;
 import io.github.cursodesousa.todo.repository.TodoRepository;
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/api/todos")
 public class TodoController {
